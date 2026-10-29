@@ -124,7 +124,41 @@
     @apply bg-background text-foreground;
   }
   section[id] {
-    scroll-margin-top: 5rem;
+    scroll-margin-top: calc(5rem + env(safe-area-inset-top));
+  }
+}
+
+/* Keep mobile controls comfortable to use without changing the admin layout. */
+@media (max-width: 767px) {
+  .portfolio-site section:not(#home) {
+    padding-block: 3.5rem;
+  }
+
+  .portfolio-site :is(button, a[data-slot="button"]),
+  .portfolio-project-dialog :is(button, a[data-slot="button"]) {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  .portfolio-site :is(input, textarea) {
+    min-height: 48px;
+    font-size: 16px;
+  }
+
+  .portfolio-site :is(h1, h2, h3, p, a),
+  .portfolio-project-dialog :is(h2, p) {
+    overflow-wrap: anywhere;
+  }
+
+  .portfolio-site #projects [data-slot="card-content"] > p {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
 }
 

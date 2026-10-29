@@ -112,7 +112,7 @@ export function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-80px' }}
             transition={{ duration: 0.5, ease: 'easeOut' }}
-            className="relative mx-auto w-full max-w-md pb-6 isolate"
+            className="relative mx-auto w-full max-w-[17.5rem] pb-6 isolate sm:max-w-md"
           >
             <div
               aria-hidden="true"
@@ -164,7 +164,7 @@ export function About() {
                         {fact.href ? (
                           <a
                             href={fact.href}
-                            className="truncate text-sm font-medium transition-colors hover:text-primary"
+                            className="block break-words text-sm font-medium transition-colors hover:text-primary"
                           >
                             {fact.value}
                           </a>

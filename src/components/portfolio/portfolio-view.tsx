@@ -11,7 +11,7 @@ import { Footer } from './footer'
 
 export function PortfolioView() {
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="portfolio-site flex min-h-svh flex-col">
       <Navbar />
       <main className="flex-1">
         <Hero />

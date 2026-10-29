@@ -82,7 +82,7 @@ export async function GET() {
           archive.directory(
             path.join(root, dir),
             dir,
-            (entry: { name?: string; type?: string }) => {
+            (entry) => {
               const name = entry?.name ?? ''
               if (shouldExclude(name) || (entry?.type === 'directory' && EXCLUDES.includes(name))) {
                 return false as const

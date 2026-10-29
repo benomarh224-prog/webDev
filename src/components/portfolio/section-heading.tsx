@@ -29,7 +29,7 @@ export function SectionHeading({ eyebrow, title, description, align = 'center' }
         {eyebrow}
         {align === 'center' ? <span aria-hidden="true" className="h-px w-8 shrink-0 bg-primary" /> : null}
       </p>
-      <h2 className="mt-4 font-display text-3xl font-bold tracking-tight md:text-4xl">{title}</h2>
+      <h2 className="mt-4 font-display text-[clamp(1.625rem,6.5vw,1.875rem)] leading-tight font-bold tracking-tight md:text-4xl">{title}</h2>
       {description ? <p className="mt-3 text-muted-foreground md:text-lg">{description}</p> : null}
     </motion.div>
   )

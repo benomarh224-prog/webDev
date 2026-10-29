@@ -98,7 +98,7 @@ export function Hero() {
   ]
 
   return (
-    <section id="home" className="relative overflow-hidden pb-16 pt-28 md:pb-24 md:pt-36">
+    <section id="home" className="relative overflow-hidden pb-12 pt-[calc(6rem+env(safe-area-inset-top))] sm:pb-16 md:pb-24 md:pt-36">
       <div
         aria-hidden="true"
         className="dot-grid absolute inset-0 [mask-image:radial-gradient(ellipse_65%_60%_at_50%_35%,black_35%,transparent_75%)]"
@@ -106,7 +106,7 @@ export function Hero() {
       <div aria-hidden="true" className="absolute -top-32 right-0 h-96 w-96 rounded-full bg-primary/15 blur-3xl" />
       <div aria-hidden="true" className="absolute -left-40 bottom-0 h-80 w-80 rounded-full bg-primary/10 blur-3xl" />
 
-      <div className="relative mx-auto grid w-full max-w-6xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-[1.2fr_1fr] lg:px-8">
+      <div className="relative mx-auto grid w-full max-w-6xl items-center gap-10 px-4 sm:gap-12 sm:px-6 lg:grid-cols-[1.2fr_1fr] lg:px-8">
         {isLoading ? (
           <HeroSkeleton />
         ) : (
@@ -126,23 +126,23 @@ export function Hero() {
 
             <motion.h1
               variants={itemVariants}
-              className="mt-2 font-display text-4xl font-bold tracking-tight text-balance sm:text-5xl lg:text-6xl"
+              className="mt-2 font-display text-[clamp(2rem,8vw,2.5rem)] leading-[1.12] font-bold tracking-tight text-balance sm:text-5xl lg:text-6xl"
             >
               {heroTitle}
             </motion.h1>
 
-            <motion.p variants={itemVariants} className="mt-5 max-w-xl text-lg leading-relaxed text-muted-foreground">
+            <motion.p variants={itemVariants} className="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground sm:mt-5 sm:text-lg">
               {heroSubtitle}
             </motion.p>
 
-            <motion.div variants={itemVariants} className="mt-8 flex flex-wrap items-center gap-3">
-              <Button asChild size="lg" className="group">
+            <motion.div variants={itemVariants} className="mt-6 grid grid-cols-1 gap-3 sm:mt-8 sm:flex sm:flex-wrap sm:items-center">
+              <Button asChild size="lg" className="group min-h-12">
                 <a href="#projects">
                   View my work
                   <ArrowRight className="transition-transform duration-300 group-hover:translate-x-1" />
                 </a>
               </Button>
-              <Button asChild size="lg" variant="outline">
+              <Button asChild size="lg" variant="outline" className="min-h-12">
                 <a href="#contact">
                   <Mail />
                   Get in touch
@@ -150,7 +150,7 @@ export function Hero() {
               </Button>
             </motion.div>
 
-            <motion.div variants={itemVariants} className="mt-10 grid max-w-md grid-cols-3 divide-x divide-border">
+            <motion.div variants={itemVariants} className="mt-8 grid max-w-md grid-cols-3 divide-x divide-border sm:mt-10">
               {stats.map((stat) => (
                 <div key={stat.label} className="px-4 first:pl-0 last:pr-0">
                   <p className="font-display text-2xl font-bold md:text-3xl">{stat.value}</p>
@@ -165,7 +165,7 @@ export function Hero() {
           initial={{ opacity: 0, scale: 0.96 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.25, ease: 'easeOut' }}
-          className="relative mx-auto w-full max-w-sm"
+          className="relative mx-auto w-full max-w-[16rem] sm:max-w-sm"
         >
           <div aria-hidden="true" className="absolute inset-0 rotate-3 rounded-3xl border border-primary/20" />
           <div aria-hidden="true" className="absolute inset-0 -rotate-2 rounded-3xl border border-primary/10" />

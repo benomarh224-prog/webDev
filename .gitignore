@@ -11,3 +11,6 @@ prisma/*.db
 prisma/*.db-journal
 .DS_Store
 Thumbs.db
+.taste-skill/
+*.tsbuildinfo
+next-env.d.ts

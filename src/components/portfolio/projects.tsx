@@ -129,7 +129,7 @@ export function Projects() {
                   onClick={() => setCategory(item)}
                   aria-pressed={category === item}
                   className={cn(
-                    'min-h-10 rounded-full px-4 py-1.5 text-sm font-medium transition-colors',
+                    'min-h-11 rounded-full px-4 py-2 text-sm font-medium transition-colors',
                     category === item
                       ? 'bg-primary text-primary-foreground shadow-sm'
                       : 'border bg-card text-muted-foreground hover:bg-accent hover:text-foreground'
@@ -238,9 +238,9 @@ export function Projects() {
       </div>
 
       <Dialog open={selected !== null} onOpenChange={(open) => (open ? undefined : setSelected(null))}>
-        <DialogContent className="gap-0 overflow-hidden p-0 sm:max-w-2xl">
+        <DialogContent className="portfolio-project-dialog gap-0 overflow-hidden p-0 sm:max-w-2xl [&>button]:flex [&>button]:size-11 [&>button]:items-center [&>button]:justify-center [&>button]:bg-background">
           {selected ? (
-            <div className="custom-scrollbar max-h-[85vh] overflow-y-auto">
+            <div className="custom-scrollbar max-h-[85dvh] overflow-y-auto overscroll-contain">
               <div className="relative aspect-video w-full overflow-hidden">
                 <ProjectImage project={selected} sizes="(max-width: 768px) 100vw, 672px" />
                 <div
@@ -249,7 +249,7 @@ export function Projects() {
                 />
               </div>
 
-              <div className="p-6">
+              <div className="p-4 sm:p-6">
                 <DialogHeader className="text-left">
                   <DialogTitle className="font-display text-2xl">{selected.title}</DialogTitle>
                   <DialogDescription className="flex flex-wrap items-center gap-2 pt-1">
