@@ -1,0 +1,91 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Admin {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String
+  name         String
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model Project {
+  id           String   @id @default(cuid())
+  title        String
+  slug         String   @unique
+  description  String
+  content      String?
+  technologies String   @default("")
+  imageUrl     String?
+  demoUrl      String?
+  repoUrl      String?
+  category     String   @default("Web App")
+  featured     Boolean  @default(false)
+  status       String   @default("published")
+  sortOrder    Int      @default(0)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model Skill {
+  id        String   @id @default(cuid())
+  name      String
+  category  String   @default("Frontend")
+  level     Int      @default(80)
+  sortOrder Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Experience {
+  id          String    @id @default(cuid())
+  company     String
+  role        String
+  description String
+  location    String?
+  startDate   DateTime
+  endDate     DateTime?
+  current     Boolean   @default(false)
+  sortOrder   Int       @default(0)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+model Message {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  subject   String?
+  message   String
+  read      Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
+
+model SiteSettings {
+  id               String   @id @default("main")
+  siteTitle        String   @default("Portfolio")
+  ownerName        String   @default("Alex Carter")
+  ownerRole        String   @default("Full-Stack Developer")
+  heroTitle        String   @default("Building digital experiences that matter")
+  heroSubtitle     String   @default("")
+  aboutText        String   @default("")
+  avatarUrl        String?
+  email            String   @default("hello@example.com")
+  location         String   @default("Paris, France")
+  resumeUrl        String?
+  githubUrl        String?
+  linkedinUrl      String?
+  twitterUrl       String?
+  dribbbleUrl      String?
+  yearsExperience  Int      @default(5)
+  clientsCount     Int      @default(20)
+  availableForWork Boolean  @default(true)
+  updatedAt        DateTime @updatedAt
+}
