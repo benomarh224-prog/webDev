@@ -12,4 +12,7 @@ if (process.env.VERCEL_ENV === 'production') {
     console.error('Database migration failed; deployment stopped.')
     process.exit(1)
   }
+
+  const { initializeAdmin } = await import('./initialize-admin.mjs')
+  await initializeAdmin()
 }
